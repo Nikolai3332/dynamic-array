@@ -1,0 +1,49 @@
+const string CommandSumNumbers = "sum";
+        const string CommandExit = "exit";
+        string desiredOperation;
+        int userInput;
+
+        int[] inputNumbers = new int[1];
+        bool isCommandExit = true;
+        int sumNumbers = 0;
+
+
+        Console.WriteLine("Добро пожаловать!");
+
+        while (isCommandExit)
+        {
+            Console.WriteLine($"Введите число или {CommandSumNumbers}, чтобы почитать сумму всех введенных чисел.");
+            Console.WriteLine($"Чтобы выйти из программы, введите {CommandExit}.");
+            desiredOperation = Console.ReadLine();
+
+            if (desiredOperation == CommandSumNumbers)
+            {
+                for (int i = 0; i < inputNumbers.Length; i++)
+                {
+                    sumNumbers += inputNumbers[i];
+                }
+
+                Console.WriteLine($"Сумма чисел - {sumNumbers}.");
+            }
+
+            else if (desiredOperation == CommandExit)
+            {
+                Console.WriteLine("Вы вышли из программы.");
+                isCommandExit = false;
+            }
+
+            else
+            {
+                userInput = Convert.ToInt32(desiredOperation);
+                int[] tempInputNumbers = new int[inputNumbers.Length + 1];
+
+                for (int i = 0; i < inputNumbers.Length; i++)
+                {
+                    tempInputNumbers[i] = inputNumbers[i];
+                }
+
+                tempInputNumbers = inputNumbers;
+                tempInputNumbers[tempInputNumbers.Length - 1] = userInput; 
+            }
+        }
+        Console.ReadKey();
