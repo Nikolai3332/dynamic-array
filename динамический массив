@@ -1,4 +1,8 @@
-const string CommandSumNumbers = "sum";
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        const string CommandSumNumbers = "sum";
         const string CommandExit = "exit";
         string desiredOperation;
         int userInput;
@@ -42,8 +46,11 @@ const string CommandSumNumbers = "sum";
                     tempInputNumbers[i] = inputNumbers[i];
                 }
 
-                tempInputNumbers = inputNumbers;
-                tempInputNumbers[tempInputNumbers.Length - 1] = userInput; 
+                tempInputNumbers[tempInputNumbers.Length - 1] = userInput;
+                inputNumbers = tempInputNumbers;
+                
             }
         }
         Console.ReadKey();
+    }
+}
