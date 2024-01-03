@@ -9,7 +9,7 @@ internal class Program
 
         int[] inputNumbers = new int[1];
         bool isCommandExit = true;
-        int sumNumbers = 0;
+        int sumNumbers;
 
 
         Console.WriteLine("Добро пожаловать!");
@@ -22,35 +22,41 @@ internal class Program
 
             if (desiredOperation == CommandSumNumbers)
             {
+                sumNumbers = 0;
+
                 for (int i = 0; i < inputNumbers.Length; i++)
                 {
                     sumNumbers += inputNumbers[i];
                 }
 
                 Console.WriteLine($"Сумма чисел - {sumNumbers}.");
+                
             }
-
             else if (desiredOperation == CommandExit)
             {
                 Console.WriteLine("Вы вышли из программы.");
                 isCommandExit = false;
             }
-
             else
             {
                 userInput = Convert.ToInt32(desiredOperation);
                 int[] tempInputNumbers = new int[inputNumbers.Length + 1];
+                tempInputNumbers[tempInputNumbers.Length - 1] = userInput;
 
                 for (int i = 0; i < inputNumbers.Length; i++)
                 {
                     tempInputNumbers[i] = inputNumbers[i];
                 }
-
-                tempInputNumbers[tempInputNumbers.Length - 1] = userInput;
+            
                 inputNumbers = tempInputNumbers;
-                
+
             }
         }
         Console.ReadKey();
     }
 }
+
+
+
+
+
