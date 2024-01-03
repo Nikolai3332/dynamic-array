@@ -9,8 +9,6 @@ internal class Program
 
         int[] inputNumbers = new int[1];
         bool isCommandExit = true;
-        int sumNumbers;
-
 
         Console.WriteLine("Добро пожаловать!");
 
@@ -30,7 +28,6 @@ internal class Program
                 }
 
                 Console.WriteLine($"Сумма чисел - {sumNumbers}.");
-                
             }
             else if (desiredOperation == CommandExit)
             {
@@ -49,7 +46,6 @@ internal class Program
                 }
             
                 inputNumbers = tempInputNumbers;
-
             }
         }
         Console.ReadKey();
