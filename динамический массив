@@ -6,9 +6,10 @@ internal class Program
         const string CommandExit = "exit";
         string desiredOperation;
         int userInput;
-
-        int[] inputNumbers = new int[1];
+        int lengthArray = 0;
+        int[] inputNumbers = new int[lengthArray];
         bool isCommandExit = true;
+        int sumNumbers;
 
         Console.WriteLine("Добро пожаловать!");
 
@@ -37,6 +38,7 @@ internal class Program
             else
             {
                 userInput = Convert.ToInt32(desiredOperation);
+                lengthArray += 1;
                 int[] tempInputNumbers = new int[inputNumbers.Length + 1];
                 tempInputNumbers[tempInputNumbers.Length - 1] = userInput;
 
@@ -51,8 +53,3 @@ internal class Program
         Console.ReadKey();
     }
 }
-
-
-
-
-
