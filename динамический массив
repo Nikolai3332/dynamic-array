@@ -4,7 +4,7 @@ internal class Program
     {
         string commandSumNumbers = "sum";
         string commandExit = "exit";
-        string desiredOperation = " ";
+        string userInput = " ";
         int number;
         int[] inputNumbers = new int[1];
 
@@ -16,9 +16,9 @@ internal class Program
         {
             Console.WriteLine($"Введите число или {commandSumNumbers}, чтобы почитать сумму всех введенных чисел.");
             Console.WriteLine($"Чтобы выйти из программы, введите {commandExit}.");
-            desiredOperation = Console.ReadLine();
+            userInput = Console.ReadLine();
 
-            if (desiredOperation == commandSumNumbers)
+            if (userInput == commandSumNumbers)
             {
                 int sumNumbers = 0;
 
@@ -29,7 +29,7 @@ internal class Program
 
                 Console.WriteLine($"Сумма чисел - {sumNumbers}.");
             }
-            else if (desiredOperation == commandExit)
+            else if (userInput == commandExit)
             {
                 Console.WriteLine("Вы вышли из программы.");
                 isCommandWorking = false;
@@ -37,7 +37,7 @@ internal class Program
             else
             {
                 int[] tempInputNumbers = new int[inputNumbers.Length + 1];
-                number = Convert.ToInt32(desiredOperation);
+                number = Convert.ToInt32(userInput);
                 tempInputNumbers[tempInputNumbers.Length - 1] = number;
 
                 for (int i = 0; i < inputNumbers.Length; i++)
