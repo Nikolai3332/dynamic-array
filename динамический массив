@@ -5,14 +5,12 @@ internal class Program
         string commandSumNumbers = "sum";
         string commandExit = "exit";
         string userInput = " ";
-        int number;
-        int[] inputNumbers = new int[1];
-
-        bool isCommandWorking = true;
+        int[] inputNumbers = new int[0];
+        bool isWorking = true;
 
         Console.WriteLine("Добро пожаловать!");
 
-        while (isCommandWorking)
+        while (isWorking)
         {
             Console.WriteLine($"Введите число или {commandSumNumbers}, чтобы почитать сумму всех введенных чисел.");
             Console.WriteLine($"Чтобы выйти из программы, введите {commandExit}.");
@@ -32,12 +30,12 @@ internal class Program
             else if (userInput == commandExit)
             {
                 Console.WriteLine("Вы вышли из программы.");
-                isCommandWorking = false;
+                isWorking = false;
             }
             else
             {
                 int[] tempInputNumbers = new int[inputNumbers.Length + 1];
-                number = Convert.ToInt32(userInput);
+                int number = Convert.ToInt32(userInput);
                 tempInputNumbers[tempInputNumbers.Length - 1] = number;
 
                 for (int i = 0; i < inputNumbers.Length; i++)
@@ -48,6 +46,7 @@ internal class Program
                 inputNumbers = tempInputNumbers;
             }
         }
+
         Console.ReadKey();
     }
 }
