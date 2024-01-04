@@ -2,26 +2,25 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        const string CommandSumNumbers = "sum";
-        const string CommandExit = "exit";
-        string desiredOperation;
-        int userInput;
-        int lengthArray = 0;
-        int[] inputNumbers = new int[lengthArray];
-        bool isCommandExit = true;
-        int sumNumbers;
+        string commandSumNumbers = "sum";
+        string commandExit = "exit";
+        string desiredOperation = " ";
+        int number;
+        int[] inputNumbers = new int[1];
+
+        bool isCommandWorking = true;
 
         Console.WriteLine("Добро пожаловать!");
 
-        while (isCommandExit)
+        while (isCommandWorking)
         {
-            Console.WriteLine($"Введите число или {CommandSumNumbers}, чтобы почитать сумму всех введенных чисел.");
-            Console.WriteLine($"Чтобы выйти из программы, введите {CommandExit}.");
+            Console.WriteLine($"Введите число или {commandSumNumbers}, чтобы почитать сумму всех введенных чисел.");
+            Console.WriteLine($"Чтобы выйти из программы, введите {commandExit}.");
             desiredOperation = Console.ReadLine();
 
-            if (desiredOperation == CommandSumNumbers)
+            if (desiredOperation == commandSumNumbers)
             {
-                sumNumbers = 0;
+                int sumNumbers = 0;
 
                 for (int i = 0; i < inputNumbers.Length; i++)
                 {
@@ -30,17 +29,16 @@ internal class Program
 
                 Console.WriteLine($"Сумма чисел - {sumNumbers}.");
             }
-            else if (desiredOperation == CommandExit)
+            else if (desiredOperation == commandExit)
             {
                 Console.WriteLine("Вы вышли из программы.");
-                isCommandExit = false;
+                isCommandWorking = false;
             }
             else
             {
-                userInput = Convert.ToInt32(desiredOperation);
-                lengthArray += 1;
                 int[] tempInputNumbers = new int[inputNumbers.Length + 1];
-                tempInputNumbers[tempInputNumbers.Length - 1] = userInput;
+                number = Convert.ToInt32(desiredOperation);
+                tempInputNumbers[tempInputNumbers.Length - 1] = number;
 
                 for (int i = 0; i < inputNumbers.Length; i++)
                 {
